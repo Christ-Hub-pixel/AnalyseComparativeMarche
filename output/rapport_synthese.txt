@@ -1,0 +1,149 @@
+================================================================================================
+  RAPPORT D'ANALYSE COMPARATIVE DE MARCHÉ — ÉLECTRONIQUE & ÉLECTROMÉNAGER À ABIDJAN
+  DA Python · L2 Computer Science · Séance 3
+================================================================================================
+
+1. CHARGEMENT DES TROIS SOURCES DE DONNÉES
+------------------------------------------------------------------------------------------------
+  • Catalogue de référence (CSV) : 30 produits de référence (P01 à P30)
+  • Marché Lagune (CSV ';')      : 28 articles uniques chargés (sur 30 lignes brutes)
+  • Baobab Shop (JSON API)       : 26 articles chargés
+  • Comptoir Ivoire (Excel XLSX) : 22 articles chargés
+  -> Total unifié en mémoire     : 76 offres (dont 62 offres en stock avec prix exploitable)
+
+2. SYNTHÈSE DU NETTOYAGE (23 ÉVÉNEMENTS CONSIGNÉS DANS journal_nettoyage.txt)
+------------------------------------------------------------------------------------------------
+  [01] Marché Lagune   | Fichier CSV | Encodage BOM UTF-8 & Format FR         | Présence d'un BOM UTF-8 (\ufeff), séparateur ';', virgule décimale et espaces insécables (\u202f) dans les prix.
+  [02] Marché Lagune   | ML-1000     | Rupture de stock                       | Ligne 2 (SAMSUNG GALAXY A15 (128GB)) : disponibilité = 'Rupture'.
+  [03] Marché Lagune   | ML-1014     | Rupture de stock                       | Ligne 4 (SAMSUNG GALAXY A55 (256GB)) : disponibilité = 'Rupture'.
+  [04] Marché Lagune   | ML-1021     | Prix aberrant (erreur de saisie)       | Ligne 5 (TECNO SPARK 20 - 128GB) : prix affiché de 779,000 FCFA contre un ancien prix barré de 88,700 FCFA (779 000 au lieu de 77 900 FCFA).
+  [05] Marché Lagune   | ML-1049     | Rupture de stock                       | Ligne 9 (ITEL A70 64GB) : disponibilité = 'Rupture'.
+  [06] Marché Lagune   | ML-1000     | Doublon                                | Ligne 14 dupliquée pour 'SAMSUNG GALAXY A15 (128GB)' (déjà présente à la ligne 2).
+  [07] Marché Lagune   | ML-1084     | Rupture de stock                       | Ligne 15 (PC PORTABLE DELL INSPIRON 15 I5 16GB/512GB) : disponibilité = 'Rupture'.
+  [08] Marché Lagune   | ML-1105     | Formatage texte                        | Ligne 18 : désignation brute mal formatée ('  souris sans fil logitech m185 ').
+  [09] Marché Lagune   | ML-1119     | Prix manquant / non numérique          | Ligne 20 (ECRAN SAMSUNG 24") : texte non numérique 'Prix sur demande'.
+  [10] Marché Lagune   | ML-1147     | Rupture de stock                       | Ligne 24 (TV HISENSE 32") : disponibilité = 'Rupture'.
+  [11] Marché Lagune   | ML-1168     | Prix manquant / non numérique          | Ligne 27 (MIXEUR MOULINEX 1.5L) : prix vide.
+  [12] Marché Lagune   | ML-1168     | Rupture de stock                       | Ligne 27 (MIXEUR MOULINEX 1.5L) : disponibilité = 'Rupture'.
+  [13] Marché Lagune   | ML-1147     | Doublon                                | Ligne 31 dupliquée pour 'TV HISENSE 32"' (déjà présente à la ligne 24).
+  [14] Baobab Shop     | Fichier JSON | Noms en anglais & Livraison séparée    | Les désignations sont en anglais ('Fridge', 'Steam Iron', '1HP'...) et les frais de livraison ('delivery_fee') sont séparés de 'amount'.
+  [15] Baobab Shop     | BB03433     | Rupture de stock                       | Article 'Galaxy A55 256GB - Samsung' : stock = 0.
+  [16] Baobab Shop     | BB16464     | Rupture de stock                       | Article 'Logitech M185 Wireless Mouse' : stock = 0.
+  [17] Baobab Shop     | BB27999     | Prix manquant (null)                   | Article 'Philips Steam Iron' : champ pricing.amount = None.
+  [18] Baobab Shop     | BB30124     | Rupture de stock                       | Article 'Hisense Air Conditioner 1.5HP' : stock = 0.
+  [19] Comptoir Ivoire | Fichier XLSX | Mise en forme tableur (titre ligne 1, en-têtes ligne 3) | La ligne 1 contient un titre général, la ligne 2 est vide et les en-têtes sont en ligne 3 ; abréviations fréquentes ('Frigo', 'Clim', 'Ventilo', 'DD').
+  [20] Comptoir Ivoire | CI200       | Faute d'orthographe                    | Ligne 4 : 'Samsun Galaxy A15 128Go' contient une faute ('Samsun' sans 'g').
+  [21] Comptoir Ivoire | CI214       | Rupture de stock                       | Ligne 18 (TV Samsung 43") : Quantité en rayon = 0.
+  [22] Comptoir Ivoire | CI216       | Type de donnée (texte au lieu de nombre) | Ligne 20 (Clim LG 1CV) : prix catalogue stocké en chaîne '279 300' avec espace insécable.
+  [23] Comptoir Ivoire | CI217       | Rupture de stock                       | Ligne 21 (Ventilo Binatone 16") : Quantité en rayon = 0.
+
+3. RAPPROCHEMENT AVEC LE CATALOGUE DE RÉFÉRENCE
+------------------------------------------------------------------------------------------------
+  • Taux de rapprochement : 76 / 76 offres associées (100 %)
+  • Méthode : normalisation des accents/unités (Go/GB, To/TB, CV/HP, pouces/"),
+              dictionnaire de synonymes FR/EN et score hybride (Rappel + Jaccard).
+
+4. TABLEAU COMPARATIF (23 PRODUITS DISPONIBLES DANS AU MOINS 2 ENSEIGNES)
+------------------------------------------------------------------------------------------------
+  ID  | Produit                          | Marché Lagune |   Baobab Shop |  Comptoir Iv. | Moins cher      |  Écart FCFA | Écart %
+  --------------------------------------------------------------------------------------------------------------------------------
+  P01 | Samsung Galaxy A15 128 Go        |             — |       104 000 |        92 990 | Comptoir Ivoire |      11 010 |   11.8%
+  P02 | Samsung Galaxy A25 128 Go        |       151 500 |       142 000 |       150 300 | Baobab Shop     |       9 500 |    6.7%
+  P04 | Tecno Spark 20 128 Go            |             — |        75 000 |        76 300 | Baobab Shop     |       1 300 |    1.7%
+  P05 | Tecno Camon 30 256 Go            |       136 900 |       135 400 |             — | Baobab Shop     |       1 500 |    1.1%
+  P06 | Infinix Hot 40i 128 Go           |        69 200 |        69 500 |        67 165 | Comptoir Ivoire |       2 335 |    3.5%
+  P07 | Infinix Note 40 256 Go           |       132 400 |       132 700 |             — | Marché Lagune   |         300 |    0.2%
+  P09 | Apple iPhone 13 128 Go           |       433 700 |       417 200 |       443 700 | Baobab Shop     |      26 500 |    6.3%
+  P10 | Xiaomi Redmi Note 13 128 Go      |       136 900 |       134 100 |             — | Baobab Shop     |       2 800 |    2.1%
+  P11 | HP 250 G9 Core i5 8 Go 512 Go    |       390 800 |       354 200 |       407 000 | Baobab Shop     |      52 800 |   14.9%
+  P12 | Lenovo IdeaPad 3 Core i3 8 Go 25 |       309 400 |       298 200 |       287 375 | Comptoir Ivoire |      22 025 |    7.7%
+  P14 | Clé USB SanDisk 64 Go            |         6 100 |         7 300 |         6 200 | Marché Lagune   |       1 200 |   19.7%
+  P15 | Disque dur externe Seagate 1 To  |        37 600 |        38 300 |        39 500 | Marché Lagune   |       1 900 |    5.0%
+  P16 | Souris sans fil Logitech M185    |         9 200 |             — |         9 200 | Marché Lagune / |           0 |    0.0%
+  P17 | Imprimante HP DeskJet 2720e      |        44 000 |        45 700 |             — | Marché Lagune   |       1 700 |    3.9%
+  P20 | Réfrigérateur Hisense 205 L      |       186 100 |       183 000 |       168 385 | Comptoir Ivoire |      17 715 |   10.5%
+  P21 | Congélateur Nasco 200 L          |       176 000 |             — |       151 725 | Comptoir Ivoire |      24 275 |   16.0%
+  P22 | TV Samsung 43 pouces Crystal UHD |       251 100 |       244 400 |             — | Baobab Shop     |       6 700 |    2.7%
+  P23 | TV Hisense 32 pouces             |             — |        96 000 |        88 740 | Comptoir Ivoire |       7 260 |    8.2%
+  P24 | Climatiseur LG 1 CV              |       256 600 |       253 300 |       279 300 | Baobab Shop     |      26 000 |   10.3%
+  P26 | Mixeur Moulinex 1,5 L            |             — |        30 900 |        29 200 | Comptoir Ivoire |       1 700 |    5.8%
+  P27 | Fer à repasser Philips           |        15 700 |             — |        15 700 | Marché Lagune / |           0 |    0.0%
+  P28 | Micro-ondes Samsung 23 L         |        67 200 |        65 400 |        68 500 | Baobab Shop     |       3 100 |    4.7%
+  P29 | Bouilloire électrique 1,7 L      |             — |        11 600 |         9 200 | Comptoir Ivoire |       2 400 |   26.1%
+
+  -> Produits écartés (< 2 enseignes disponibles) : 7 produits (P03, P08, P13, P18, P19, P25, P30)
+
+5. SYNTHÈSE DU MARCHÉ
+------------------------------------------------------------------------------------------------
+  a) Nombre de fois où chaque enseigne est la moins chère (sur 23 produits, dont 2 ex-aequo) :
+     • Marché Lagune    :  6 fois la moins chère (sur 18 produits comparés où elle est en stock)
+     • Baobab Shop      :  9 fois la moins chère (sur 20 produits comparés où elle est en stock)
+     • Comptoir Ivoire  : 10 fois la moins chère (sur 18 produits comparés où elle est en stock)
+
+  b) Écart moyen de chaque enseigne par rapport au prix le plus bas :
+     • Marché Lagune    : +8 042 FCFA en moyenne (soit +3.79 % au-dessus du prix minimum)
+     • Baobab Shop      : +2 702 FCFA en moyenne (soit +4.67 % au-dessus du prix minimum)
+     • Comptoir Ivoire  : +6 667 FCFA en moyenne (soit +2.81 % au-dessus du prix minimum)
+
+  c) Les 3 produits où il y a le plus à gagner à comparer :
+     En valeur absolue (FCFA) :
+       1. P11 - HP 250 G9 Core i5 8 Go 512 Go : gain de 52 800 FCFA (+14.9 %) chez Baobab Shop (354 200 FCFA vs 407 000 FCFA)
+       2. P09 - Apple iPhone 13 128 Go : gain de 26 500 FCFA (+6.3 %) chez Baobab Shop (417 200 FCFA vs 443 700 FCFA)
+       3. P24 - Climatiseur LG 1 CV : gain de 26 000 FCFA (+10.3 %) chez Baobab Shop (253 300 FCFA vs 279 300 FCFA)
+     En pourcentage (%) :
+       1. P29 - Bouilloire électrique 1,7 L : +26.1 % d'écart (gain de 2 400 FCFA) chez Comptoir Ivoire (9 200 FCFA vs 11 600 FCFA)
+       2. P14 - Clé USB SanDisk 64 Go : +19.7 % d'écart (gain de 1 200 FCFA) chez Marché Lagune (6 100 FCFA vs 7 300 FCFA)
+       3. P21 - Congélateur Nasco 200 L : +16.0 % d'écart (gain de 24 275 FCFA) chez Comptoir Ivoire (151 725 FCFA vs 176 000 FCFA)
+
+6. SIMULATION DU PANIER DE RENTRÉE
+------------------------------------------------------------------------------------------------
+  Articles : 1x Tecno Spark 20 (P04), 1x Lenovo IdeaPad 3 (P12),
+             2x Clé USB SanDisk 64 Go (P14), 1x DD Seagate 1 To (P15), 1x Micro-ondes Samsung (P28)
+
+  Coût du panier complet dans chaque enseigne :
+    • Marché Lagune    : Incomplet si P04 (779 000 FCFA aberrant) est écarté | 504 300 FCFA après correction de P04 à 77 900 FCFA (ou 1 205 400 FCFA au tarif erroné)
+    • Baobab Shop      : 491 500 FCFA
+    • Comptoir Ivoire  : 484 075 FCFA
+
+  Panier optimal multi-enseignes (chaque article au moins cher) : 477 575 FCFA
+    - 1x P04 (Tecno Spark 20 128 Go               ) chez Baobab Shop     : 75 000 FCFA x 1 = 75 000 FCFA
+    - 1x P12 (Lenovo IdeaPad 3 Core i3 8 Go 256 Go) chez Comptoir Ivoire : 287 375 FCFA x 1 = 287 375 FCFA
+    - 2x P14 (Clé USB SanDisk 64 Go               ) chez Marché Lagune   : 6 100 FCFA x 2 = 12 200 FCFA
+    - 1x P15 (Disque dur externe Seagate 1 To     ) chez Marché Lagune   : 37 600 FCFA x 1 = 37 600 FCFA
+    - 1x P28 (Micro-ondes Samsung 23 L            ) chez Baobab Shop     : 65 400 FCFA x 1 = 65 400 FCFA
+
+7. ANALYSE DE L'HISTORIQUE ANNUEL (20 876 LIGNES : 01/11/2025 AU 31/10/2026)
+------------------------------------------------------------------------------------------------
+  Comparaison de la semaine du Black Friday (24 au 30 novembre 2025) au prix moyen de l'année :
+    • Marché Lagune :
+      - Prix moyen annuel : 161 978 FCFA | Semaine Black Friday : 143 894 FCFA (-11.16 % global, -11.32 % en moyenne par produit)
+      - Produits en promotion au Black Friday : 28 / 28 produits
+      - Jour le moins cher de l'année : 2025-11-25 (143 571 FCFA) | Mois le plus bas : 2026-09 (153 835 FCFA)
+    • Baobab Shop :
+      - Prix moyen annuel : 140 913 FCFA | Semaine Black Friday : 124 579 FCFA (-11.59 % global, -11.68 % en moyenne par produit)
+      - Produits en promotion au Black Friday : 26 / 26 produits
+      - Jour le moins cher de l'année : 2025-11-29 (124 108 FCFA) | Mois le plus bas : 2026-09 (134 748 FCFA)
+    • Comptoir Ivoire :
+      - Prix moyen annuel : 154 843 FCFA | Semaine Black Friday : 160 605 FCFA (+3.72 % global, +3.75 % en moyenne par produit)
+      - Produits en promotion au Black Friday : 0 / 22 produits
+      - Jour le moins cher de l'année : 2026-09-14 (145 682 FCFA) | Mois le plus bas : 2026-09 (147 781 FCFA)
+
+  Recommandation — Quand fallait-il acheter ?
+    • Sur les plateformes en ligne (Marché Lagune : -11,3 % et Baobab Shop : -11,7 %),
+      la semaine du Black Friday (24 au 30 novembre 2025) concentre les 7 jours les moins chers
+      de toute l'année sur 100 % de leur catalogue.
+    • Chez Comptoir Ivoire (boutique physique à Adjamé), il n'y a pas de promotion Black Friday
+      (+3,7 % au-dessus de la moyenne annuelle) ; il fallait acheter à la rentrée de septembre 2026.
+
+8. COMPLEXITÉ ALGORITHMIQUE ET MESURES DE TEMPS D'EXÉCUTION
+------------------------------------------------------------------------------------------------
+  • Agrégation de 90 requêtes (enseigne × produit) sur 20 876 lignes :
+    - Approche naïve (boucles imbriquées O(K × N)) : 968.35 ms
+    - Approche indexée (dictionnaire O(N + K))     : 50.90 ms
+    -> Accélération mesurée                        : x19.0 plus rapide
+  • Recherche unitaire d'un tarif (enseigne, produit, date) :
+    - Parcours linéaire d'une list O(N)            : 17020.95 µs
+    - Accès par clé dans un dict O(1)              : 0.731 µs
+    -> Accélération mesurée                        : x23 281 plus rapide
+  • Temps d'exécution total de la chaîne complète  : 7009.1 ms
+================================================================================================

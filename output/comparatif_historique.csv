@@ -1,0 +1,77 @@
+﻿enseigne,produit_id,nom,nb_releves_annee,prix_moyen_annuel_fcfa,prix_moyen_black_friday_fcfa,ecart_bf_fcfa,ecart_bf_pct,prix_min_annuel_fcfa,prix_max_annuel_fcfa
+Marché Lagune,P01,Samsung Galaxy A15 128 Go,365,104924,91157,-13766,-13.12,90100,108600
+Marché Lagune,P02,Samsung Galaxy A25 128 Go,365,159874,142114,-17759,-11.11,140600,171500
+Marché Lagune,P03,Samsung Galaxy A55 256 Go,365,302331,268014,-34317,-11.35,265200,322800
+Marché Lagune,P04,Tecno Spark 20 128 Go,365,82375,73571,-8804,-10.69,72800,88400
+Marché Lagune,P05,Tecno Camon 30 256 Go,365,142814,125329,-17485,-12.24,124300,151400
+Marché Lagune,P06,Infinix Hot 40i 128 Go,365,70441,60957,-9484,-13.46,60200,73100
+Marché Lagune,P07,Infinix Note 40 256 Go,365,141107,125971,-15136,-10.73,125100,152800
+Marché Lagune,P08,Itel A70 64 Go,365,47619,42200,-5419,-11.38,41700,50400
+Marché Lagune,P09,Apple iPhone 13 128 Go,365,453514,404643,-48871,-10.78,398800,482000
+Marché Lagune,P10,Xiaomi Redmi Note 13 128 Go,365,142178,125800,-16378,-11.52,124000,150400
+Marché Lagune,P11,HP 250 G9 Core i5 8 Go 512 Go,365,412084,369871,-42213,-10.24,359500,445100
+Marché Lagune,P12,Lenovo IdeaPad 3 Core i3 8 Go 256 Go,365,325386,292157,-33229,-10.21,284500,350600
+Marché Lagune,P13,Dell Inspiron 15 Core i5 16 Go 512 Go,365,471421,426657,-44764,-9.5,410000,513400
+Marché Lagune,P14,Clé USB SanDisk 64 Go,365,6281,5571,-710,-11.3,5500,6600
+Marché Lagune,P15,Disque dur externe Seagate 1 To,365,40103,36529,-3574,-8.91,34700,43600
+Marché Lagune,P16,Souris sans fil Logitech M185,365,9436,8300,-1136,-12.04,8200,9900
+Marché Lagune,P17,Imprimante HP DeskJet 2720e,365,45102,39729,-5373,-11.91,39200,47600
+Marché Lagune,P19,Écran Samsung 24 pouces,365,102561,91957,-10604,-10.34,90800,109500
+Marché Lagune,P20,Réfrigérateur Hisense 205 L,365,194893,172643,-22250,-11.42,171700,206800
+Marché Lagune,P21,Congélateur Nasco 200 L,365,180819,157871,-22948,-12.69,155600,189100
+Marché Lagune,P22,TV Samsung 43 pouces Crystal UHD,365,266013,238329,-27685,-10.41,235400,285500
+Marché Lagune,P23,TV Hisense 32 pouces,365,102718,91514,-11203,-10.91,90300,110000
+Marché Lagune,P24,Climatiseur LG 1 CV,365,272130,239700,-32430,-11.92,237800,295600
+Marché Lagune,P25,Ventilateur sur pied Binatone 16 pouces,365,22238,19271,-2967,-13.34,19100,23100
+Marché Lagune,P26,"Mixeur Moulinex 1,5 L",365,31449,28414,-3035,-9.65,28000,33900
+Marché Lagune,P27,Fer à repasser Philips,365,16652,14914,-1737,-10.43,14700,17900
+Marché Lagune,P28,Micro-ondes Samsung 23 L,365,70319,62357,-7962,-11.32,61900,74600
+Marché Lagune,P30,"Climatiseur Hisense 1,5 CV",365,318597,273500,-45097,-14.15,270200,342500
+Baobab Shop,P01,Samsung Galaxy A15 128 Go,365,105995,92671,-13323,-12.57,92100,111100
+Baobab Shop,P02,Samsung Galaxy A25 128 Go,365,149387,134386,-15001,-10.04,132700,161100
+Baobab Shop,P03,Samsung Galaxy A55 256 Go,365,282740,248643,-34097,-12.06,244700,297200
+Baobab Shop,P04,Tecno Spark 20 128 Go,365,76323,67257,-9066,-11.88,66400,80800
+Baobab Shop,P05,Tecno Camon 30 256 Go,365,138727,121829,-16899,-12.18,120500,146400
+Baobab Shop,P06,Infinix Hot 40i 128 Go,365,69194,60171,-9022,-13.04,59200,71700
+Baobab Shop,P07,Infinix Note 40 256 Go,365,134515,118257,-16257,-12.09,117600,140400
+Baobab Shop,P09,Apple iPhone 13 128 Go,365,432451,382371,-50080,-11.58,376500,455500
+Baobab Shop,P10,Xiaomi Redmi Note 13 128 Go,365,136344,119043,-17301,-12.69,117700,142200
+Baobab Shop,P11,HP 250 G9 Core i5 8 Go 512 Go,365,372611,333100,-39511,-10.6,325700,401600
+Baobab Shop,P12,Lenovo IdeaPad 3 Core i3 8 Go 256 Go,365,311975,278786,-33189,-10.64,274100,334800
+Baobab Shop,P14,Clé USB SanDisk 64 Go,365,5881,5129,-752,-12.79,5100,6100
+Baobab Shop,P15,Disque dur externe Seagate 1 To,365,37785,33214,-4571,-12.1,32900,39800
+Baobab Shop,P16,Souris sans fil Logitech M185,365,9018,7957,-1061,-11.76,7900,9600
+Baobab Shop,P17,Imprimante HP DeskJet 2720e,365,44918,39557,-5361,-11.93,39100,46800
+Baobab Shop,P18,Routeur TP-Link Archer C6,365,28850,25914,-2936,-10.18,25200,31200
+Baobab Shop,P19,Écran Samsung 24 pouces,365,92418,81400,-11018,-11.92,80700,98100
+Baobab Shop,P20,Réfrigérateur Hisense 205 L,365,190683,169829,-20855,-10.94,168300,203700
+Baobab Shop,P22,TV Samsung 43 pouces Crystal UHD,365,252570,222286,-30284,-11.99,219900,265800
+Baobab Shop,P23,TV Hisense 32 pouces,365,97831,86657,-11174,-11.42,86000,103900
+Baobab Shop,P24,Climatiseur LG 1 CV,365,271455,240600,-30855,-11.37,238400,296100
+Baobab Shop,P26,"Mixeur Moulinex 1,5 L",365,29481,25986,-3495,-11.86,25600,31100
+Baobab Shop,P27,Fer à repasser Philips,365,14959,13343,-1616,-10.8,13100,15900
+Baobab Shop,P28,Micro-ondes Samsung 23 L,365,64826,56814,-8011,-12.36,56000,68100
+Baobab Shop,P29,"Bouilloire électrique 1,7 L",365,9524,8529,-996,-10.45,8500,10100
+Baobab Shop,P30,"Climatiseur Hisense 1,5 CV",365,303288,265329,-37959,-12.52,262500,328900
+Comptoir Ivoire,P01,Samsung Galaxy A15 128 Go,53,116338,122500,6162,5.3,109400,123300
+Comptoir Ivoire,P02,Samsung Galaxy A25 128 Go,53,160217,169100,8883,5.54,150300,170200
+Comptoir Ivoire,P04,Tecno Spark 20 128 Go,53,79858,83000,3142,3.93,76300,83500
+Comptoir Ivoire,P06,Infinix Hot 40i 128 Go,53,72868,74800,1932,2.65,70700,75100
+Comptoir Ivoire,P08,Itel A70 64 Go,53,46181,47100,919,1.99,45200,47200
+Comptoir Ivoire,P09,Apple iPhone 13 128 Go,53,460530,475600,15070,3.27,443700,477500
+Comptoir Ivoire,P11,HP 250 G9 Core i5 8 Go 512 Go,53,414460,423500,9040,2.18,376500,424500
+Comptoir Ivoire,P12,Lenovo IdeaPad 3 Core i3 8 Go 256 Go,53,316349,330500,14151,4.47,281800,332200
+Comptoir Ivoire,P13,Dell Inspiron 15 Core i5 16 Go 512 Go,53,466706,483000,16294,3.49,419300,484900
+Comptoir Ivoire,P14,Clé USB SanDisk 64 Go,53,6568,6900,332,5.06,5800,7000
+Comptoir Ivoire,P15,Disque dur externe Seagate 1 To,53,41157,42900,1743,4.24,36800,43100
+Comptoir Ivoire,P16,Souris sans fil Logitech M185,53,9387,9600,213,2.27,8500,9600
+Comptoir Ivoire,P20,Réfrigérateur Hisense 205 L,53,208804,218400,9596,4.6,198100,219600
+Comptoir Ivoire,P21,Congélateur Nasco 200 L,53,187538,195600,8062,4.3,178500,196700
+Comptoir Ivoire,P22,TV Samsung 43 pouces Crystal UHD,53,265738,276200,10462,3.94,254000,277600
+Comptoir Ivoire,P23,TV Hisense 32 pouces,53,102926,106800,3874,3.76,98600,107300
+Comptoir Ivoire,P24,Climatiseur LG 1 CV,53,298911,310700,11789,3.94,279300,319800
+Comptoir Ivoire,P25,Ventilateur sur pied Binatone 16 pouces,53,24668,25500,832,3.37,23700,25600
+Comptoir Ivoire,P26,"Mixeur Moulinex 1,5 L",53,29802,30300,498,1.67,29200,30400
+Comptoir Ivoire,P27,Fer à repasser Philips,53,16509,17200,691,4.18,15700,17300
+Comptoir Ivoire,P28,Micro-ondes Samsung 23 L,53,71379,74000,2621,3.67,68500,74300
+Comptoir Ivoire,P29,"Bouilloire électrique 1,7 L",53,9649,10100,451,4.67,9200,10100

@@ -1,0 +1,121 @@
+========================================================================================
+JOURNAL DE NETTOYAGE DES DONNÉES — ANALYSE COMPARATIVE DE MARCHÉ
+========================================================================================
+
+Nombre total d'événements et d'anomalies répertoriés : 23
+
+[01] Enseigne : Marché Lagune | Référence : Fichier CSV
+     Catégorie : Encodage BOM UTF-8 & Format FR
+     Anomalie  : Présence d'un BOM UTF-8 (\ufeff), séparateur ';', virgule décimale et espaces insécables (\u202f) dans les prix.
+     Traitement: Lecture avec encoding='utf-8-sig', delimiter=';' et nettoyage regex.
+----------------------------------------------------------------------------------------
+[02] Enseigne : Marché Lagune | Référence : ML-1000
+     Catégorie : Rupture de stock
+     Anomalie  : Ligne 2 (SAMSUNG GALAXY A15 (128GB)) : disponibilité = 'Rupture'.
+     Traitement: Exclu de la sélection « le moins cher ».
+----------------------------------------------------------------------------------------
+[03] Enseigne : Marché Lagune | Référence : ML-1014
+     Catégorie : Rupture de stock
+     Anomalie  : Ligne 4 (SAMSUNG GALAXY A55 (256GB)) : disponibilité = 'Rupture'.
+     Traitement: Exclu de la sélection « le moins cher ».
+----------------------------------------------------------------------------------------
+[04] Enseigne : Marché Lagune | Référence : ML-1021
+     Catégorie : Prix aberrant (erreur de saisie)
+     Anomalie  : Ligne 5 (TECNO SPARK 20 - 128GB) : prix affiché de 779,000 FCFA contre un ancien prix barré de 88,700 FCFA (779 000 au lieu de 77 900 FCFA).
+     Traitement: Prix aberrant écarté du comparatif (et valeur corrigée 77 900 FCFA documentée pour le panier).
+----------------------------------------------------------------------------------------
+[05] Enseigne : Marché Lagune | Référence : ML-1049
+     Catégorie : Rupture de stock
+     Anomalie  : Ligne 9 (ITEL A70 64GB) : disponibilité = 'Rupture'.
+     Traitement: Exclu de la sélection « le moins cher ».
+----------------------------------------------------------------------------------------
+[06] Enseigne : Marché Lagune | Référence : ML-1000
+     Catégorie : Doublon
+     Anomalie  : Ligne 14 dupliquée pour 'SAMSUNG GALAXY A15 (128GB)' (déjà présente à la ligne 2).
+     Traitement: Ligne doublon ignorée.
+----------------------------------------------------------------------------------------
+[07] Enseigne : Marché Lagune | Référence : ML-1084
+     Catégorie : Rupture de stock
+     Anomalie  : Ligne 15 (PC PORTABLE DELL INSPIRON 15 I5 16GB/512GB) : disponibilité = 'Rupture'.
+     Traitement: Exclu de la sélection « le moins cher ».
+----------------------------------------------------------------------------------------
+[08] Enseigne : Marché Lagune | Référence : ML-1105
+     Catégorie : Formatage texte
+     Anomalie  : Ligne 18 : désignation brute mal formatée ('  souris sans fil logitech m185 ').
+     Traitement: Normalisée en 'souris sans fil logitech m185'.
+----------------------------------------------------------------------------------------
+[09] Enseigne : Marché Lagune | Référence : ML-1119
+     Catégorie : Prix manquant / non numérique
+     Anomalie  : Ligne 20 (ECRAN SAMSUNG 24") : texte non numérique 'Prix sur demande'.
+     Traitement: Offre marquée comme non exploitable.
+----------------------------------------------------------------------------------------
+[10] Enseigne : Marché Lagune | Référence : ML-1147
+     Catégorie : Rupture de stock
+     Anomalie  : Ligne 24 (TV HISENSE 32") : disponibilité = 'Rupture'.
+     Traitement: Exclu de la sélection « le moins cher ».
+----------------------------------------------------------------------------------------
+[11] Enseigne : Marché Lagune | Référence : ML-1168
+     Catégorie : Prix manquant / non numérique
+     Anomalie  : Ligne 27 (MIXEUR MOULINEX 1.5L) : prix vide.
+     Traitement: Offre marquée comme non exploitable.
+----------------------------------------------------------------------------------------
+[12] Enseigne : Marché Lagune | Référence : ML-1168
+     Catégorie : Rupture de stock
+     Anomalie  : Ligne 27 (MIXEUR MOULINEX 1.5L) : disponibilité = 'Rupture'.
+     Traitement: Exclu de la sélection « le moins cher ».
+----------------------------------------------------------------------------------------
+[13] Enseigne : Marché Lagune | Référence : ML-1147
+     Catégorie : Doublon
+     Anomalie  : Ligne 31 dupliquée pour 'TV HISENSE 32"' (déjà présente à la ligne 24).
+     Traitement: Ligne doublon ignorée.
+----------------------------------------------------------------------------------------
+[14] Enseigne : Baobab Shop | Référence : Fichier JSON
+     Catégorie : Noms en anglais & Livraison séparée
+     Anomalie  : Les désignations sont en anglais ('Fridge', 'Steam Iron', '1HP'...) et les frais de livraison ('delivery_fee') sont séparés de 'amount'.
+     Traitement: Traduction/normalisation des termes anglais et calcul prix_paye = amount + delivery_fee.
+----------------------------------------------------------------------------------------
+[15] Enseigne : Baobab Shop | Référence : BB03433
+     Catégorie : Rupture de stock
+     Anomalie  : Article 'Galaxy A55 256GB - Samsung' : stock = 0.
+     Traitement: Exclu de la sélection « le moins cher ».
+----------------------------------------------------------------------------------------
+[16] Enseigne : Baobab Shop | Référence : BB16464
+     Catégorie : Rupture de stock
+     Anomalie  : Article 'Logitech M185 Wireless Mouse' : stock = 0.
+     Traitement: Exclu de la sélection « le moins cher ».
+----------------------------------------------------------------------------------------
+[17] Enseigne : Baobab Shop | Référence : BB27999
+     Catégorie : Prix manquant (null)
+     Anomalie  : Article 'Philips Steam Iron' : champ pricing.amount = None.
+     Traitement: Offre marquée comme non exploitable.
+----------------------------------------------------------------------------------------
+[18] Enseigne : Baobab Shop | Référence : BB30124
+     Catégorie : Rupture de stock
+     Anomalie  : Article 'Hisense Air Conditioner 1.5HP' : stock = 0.
+     Traitement: Exclu de la sélection « le moins cher ».
+----------------------------------------------------------------------------------------
+[19] Enseigne : Comptoir Ivoire | Référence : Fichier XLSX
+     Catégorie : Mise en forme tableur (titre ligne 1, en-têtes ligne 3)
+     Anomalie  : La ligne 1 contient un titre général, la ligne 2 est vide et les en-têtes sont en ligne 3 ; abréviations fréquentes ('Frigo', 'Clim', 'Ventilo', 'DD').
+     Traitement: Saut des lignes décoratives, lecture dès la ligne 4 et normalisation des abréviations.
+----------------------------------------------------------------------------------------
+[20] Enseigne : Comptoir Ivoire | Référence : CI200
+     Catégorie : Faute d'orthographe
+     Anomalie  : Ligne 4 : 'Samsun Galaxy A15 128Go' contient une faute ('Samsun' sans 'g').
+     Traitement: Corrigé automatiquement par le dictionnaire de synonymes.
+----------------------------------------------------------------------------------------
+[21] Enseigne : Comptoir Ivoire | Référence : CI214
+     Catégorie : Rupture de stock
+     Anomalie  : Ligne 18 (TV Samsung 43") : Quantité en rayon = 0.
+     Traitement: Exclu de la sélection « le moins cher ».
+----------------------------------------------------------------------------------------
+[22] Enseigne : Comptoir Ivoire | Référence : CI216
+     Catégorie : Type de donnée (texte au lieu de nombre)
+     Anomalie  : Ligne 20 (Clim LG 1CV) : prix catalogue stocké en chaîne '279 300' avec espace insécable.
+     Traitement: Nettoyage des espaces et conversion en entier (279 300 FCFA).
+----------------------------------------------------------------------------------------
+[23] Enseigne : Comptoir Ivoire | Référence : CI217
+     Catégorie : Rupture de stock
+     Anomalie  : Ligne 21 (Ventilo Binatone 16") : Quantité en rayon = 0.
+     Traitement: Exclu de la sélection « le moins cher ».
+----------------------------------------------------------------------------------------

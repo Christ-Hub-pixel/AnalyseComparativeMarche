@@ -50,11 +50,6 @@ AnalyseComparativeMarche/
 │   ├── rapport_synthese.txt
 │   └── comparatif_historique.csv
 │
-├── tests/
-│   ├── test_chargement.py
-│   ├── test_nettoyage.py
-│   └── test_comparaison.py
-│
 ├── requirements.txt
 ├── README.md
 └── .gitignore
@@ -77,10 +72,6 @@ AnalyseComparativeMarche/
 2. **Afficher directement le rapport complet sans menu interactif** :
    ```bash
    python3 src/main.py --rapport
-   ```
-3. **Lancer les 17 tests unitaires et de robustesse** :
-   ```bash
-   python3 -m unittest discover -s tests -v
    ```
 
 ---

@@ -1,4 +1,4 @@
-# AnalyseComparativeMarche — Guide Complet du Projet
+# AnalyseComparativeMarche - Guide Complet du Projet
 
 **DA Python · L2 Computer Science · Séance 3**  
 Ce document présente l'architecture **MVC**, le guide d'utilisation, l'explication détaillée des **5 mécanismes algorithmiques clés du code** (sans répétition), ainsi que la synthèse des résultats métier.

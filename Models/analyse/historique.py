@@ -4,9 +4,9 @@ from collections import defaultdict
 import heapq
 from typing import Dict, List, Optional, Tuple
 
-from src.analyse.comparateur import ENSEIGNES
-from src.nettoyage.nettoyeur import nettoyer_prix_texte
-from src.rapprochement.catalogue import ProduitReference
+from Models.analyse.comparateur import ENSEIGNES
+from Models.nettoyage.nettoyeur import nettoyer_prix_texte
+from Models.rapprochement.catalogue import ProduitReference
 
 DEBUT_BLACK_FRIDAY = "2025-11-24"
 FIN_BLACK_FRIDAY = "2025-11-30"

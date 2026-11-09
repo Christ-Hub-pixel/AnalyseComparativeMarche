@@ -3,8 +3,8 @@ from __future__ import annotations
 from collections import defaultdict
 from typing import Dict, List
 
-from src.nettoyage.nettoyeur import OffreEnseigne
-from src.rapprochement.catalogue import ProduitReference
+from Models.nettoyage.nettoyeur import OffreEnseigne
+from Models.rapprochement.catalogue import ProduitReference
 
 ENSEIGNES = ["Marché Lagune", "Baobab Shop", "Comptoir Ivoire"]
 

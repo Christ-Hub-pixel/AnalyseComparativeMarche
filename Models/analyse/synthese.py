@@ -3,7 +3,7 @@ from __future__ import annotations
 import heapq
 from typing import Dict, List
 
-from src.analyse.comparateur import ENSEIGNES
+from Models.analyse.comparateur import ENSEIGNES
 
 
 def calculer_synthese(lignes_comparatif: List[Dict[str, object]]) -> Dict[str, object]:

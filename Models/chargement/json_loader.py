@@ -4,9 +4,9 @@ import json
 from pathlib import Path
 from typing import Dict, List, Optional
 
-from src.chargement.csv_loader import _ouvrir_texte_robuste
-from src.nettoyage.journal import JournalNettoyage
-from src.nettoyage.nettoyeur import OffreEnseigne, nettoyer_offres_baobab_shop
+from Models.chargement.csv_loader import _ouvrir_texte_robuste
+from Models.nettoyage.journal import JournalNettoyage
+from Models.nettoyage.nettoyeur import OffreEnseigne, nettoyer_offres_baobab_shop
 
 
 def lire_json_baobab_brut(

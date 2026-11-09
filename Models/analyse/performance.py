@@ -4,9 +4,9 @@ from collections import defaultdict
 import time
 from typing import Dict, List, Tuple
 
-from src.analyse.comparateur import ENSEIGNES
-from src.analyse.historique import DEBUT_BLACK_FRIDAY, FIN_BLACK_FRIDAY
-from src.nettoyage.nettoyeur import nettoyer_prix_texte
+from Models.analyse.comparateur import ENSEIGNES
+from Models.analyse.historique import DEBUT_BLACK_FRIDAY, FIN_BLACK_FRIDAY
+from Models.nettoyage.nettoyeur import nettoyer_prix_texte
 
 
 def mesurer_performances(lignes_historique: List[Dict[str, str]]) -> Dict[str, float]:

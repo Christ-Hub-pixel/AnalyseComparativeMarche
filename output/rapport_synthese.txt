@@ -138,12 +138,12 @@
 8. COMPLEXITÉ ALGORITHMIQUE ET MESURES DE TEMPS D'EXÉCUTION
 ------------------------------------------------------------------------------------------------
   • Agrégation de 90 requêtes (enseigne × produit) sur 20 876 lignes :
-    - Approche naïve (boucles imbriquées O(K × N)) : 968.35 ms
-    - Approche indexée (dictionnaire O(N + K))     : 50.90 ms
-    -> Accélération mesurée                        : x19.0 plus rapide
+    - Approche naïve (boucles imbriquées O(K × N)) : 663.81 ms
+    - Approche indexée (dictionnaire O(N + K))     : 70.65 ms
+    -> Accélération mesurée                        : x9.4 plus rapide
   • Recherche unitaire d'un tarif (enseigne, produit, date) :
-    - Parcours linéaire d'une list O(N)            : 17020.95 µs
-    - Accès par clé dans un dict O(1)              : 0.731 µs
-    -> Accélération mesurée                        : x23 281 plus rapide
-  • Temps d'exécution total de la chaîne complète  : 7009.1 ms
+    - Parcours linéaire d'une list O(N)            : 15737.85 µs
+    - Accès par clé dans un dict O(1)              : 0.713 µs
+    -> Accélération mesurée                        : x22 088 plus rapide
+  • Temps d'exécution total de la chaîne complète  : 5862.3 ms
 ================================================================================================

@@ -12,23 +12,23 @@ RACINE_PROJET = Path(__file__).resolve().parent.parent
 if str(RACINE_PROJET) not in sys.path:
     sys.path.insert(0, str(RACINE_PROJET))
 
-from src.analyse.comparateur import ENSEIGNES, comparer_produits, construire_index_offres
-from src.analyse.historique import analyser_historique
-from src.analyse.panier import PANIER_RENTREE, evaluer_panier
-from src.analyse.performance import mesurer_performances
-from src.analyse.synthese import calculer_synthese
-from src.chargement.csv_loader import charger_historique_csv, charger_marche_lagune
-from src.chargement.excel_loader import charger_comptoir_ivoire
-from src.chargement.json_loader import charger_baobab_shop
-from src.exportation.export_csv import exporter_comparatif_csv, exporter_historique_csv
-from src.exportation.rapport import (
+from Models.analyse.comparateur import ENSEIGNES, comparer_produits, construire_index_offres
+from Models.analyse.historique import analyser_historique
+from Models.analyse.panier import PANIER_RENTREE, evaluer_panier
+from Models.analyse.performance import mesurer_performances
+from Models.analyse.synthese import calculer_synthese
+from Models.chargement.csv_loader import charger_historique_csv, charger_marche_lagune
+from Models.chargement.excel_loader import charger_comptoir_ivoire
+from Models.chargement.json_loader import charger_baobab_shop
+from Vue.exportation.export_csv import exporter_comparatif_csv, exporter_historique_csv
+from Vue.exportation.rapport import (
     construire_rapport_synthese,
     exporter_rapport_synthese,
     formater_fcfa,
 )
-from src.nettoyage.journal import JournalNettoyage
-from src.rapprochement.catalogue import charger_catalogue_reference
-from src.rapprochement.correspondance import (
+from Models.nettoyage.journal import JournalNettoyage
+from Models.rapprochement.catalogue import charger_catalogue_reference
+from Models.rapprochement.correspondance import (
     associer_offres_au_catalogue,
     rapprocher_produit,
 )

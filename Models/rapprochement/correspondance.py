@@ -5,8 +5,8 @@ from typing import TYPE_CHECKING, Dict, List, Optional, Set, Tuple
 import unicodedata
 
 if TYPE_CHECKING:
-    from src.nettoyage.nettoyeur import OffreEnseigne
-    from src.rapprochement.catalogue import ProduitReference
+    from Models.nettoyage.nettoyeur import OffreEnseigne
+    from Models.rapprochement.catalogue import ProduitReference
 
 
 SYNONYMES: Dict[str, str] = {

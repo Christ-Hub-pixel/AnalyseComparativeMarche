@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from typing import Dict, List, Optional, Tuple
 
-from src.analyse.comparateur import ENSEIGNES
-from src.nettoyage.nettoyeur import OffreEnseigne
+from Models.analyse.comparateur import ENSEIGNES
+from Models.nettoyage.nettoyeur import OffreEnseigne
 
 
 PANIER_RENTREE: List[Tuple[str, str, int]] = [

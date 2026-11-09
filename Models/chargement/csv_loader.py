@@ -4,8 +4,8 @@ import csv
 from pathlib import Path
 from typing import Dict, List, Optional
 
-from src.nettoyage.journal import JournalNettoyage
-from src.nettoyage.nettoyeur import OffreEnseigne, nettoyer_offres_marche_lagune, nettoyer_prix_texte
+from Models.nettoyage.journal import JournalNettoyage
+from Models.nettoyage.nettoyeur import OffreEnseigne, nettoyer_offres_marche_lagune, nettoyer_prix_texte
 
 
 def _ouvrir_texte_robuste(chemin_fichier: Path) -> str:

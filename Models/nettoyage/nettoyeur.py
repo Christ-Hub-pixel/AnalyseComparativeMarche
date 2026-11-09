@@ -5,7 +5,7 @@ import math
 import re
 from typing import Dict, List, Optional
 
-from src.nettoyage.journal import JournalNettoyage
+from Models.nettoyage.journal import JournalNettoyage
 
 
 @dataclass

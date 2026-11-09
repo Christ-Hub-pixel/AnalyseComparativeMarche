@@ -5,8 +5,8 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Dict, Set
 
-from src.chargement.csv_loader import _ouvrir_texte_robuste
-from src.rapprochement.correspondance import extraire_jetons
+from Models.chargement.csv_loader import _ouvrir_texte_robuste
+from Models.rapprochement.correspondance import extraire_jetons
 
 
 @dataclass

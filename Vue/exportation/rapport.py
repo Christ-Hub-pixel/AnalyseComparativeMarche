@@ -4,10 +4,10 @@ import math
 from pathlib import Path
 from typing import Dict, List, Optional
 
-from src.analyse.comparateur import ENSEIGNES
-from src.nettoyage.journal import JournalNettoyage
-from src.nettoyage.nettoyeur import OffreEnseigne
-from src.rapprochement.catalogue import ProduitReference
+from Models.analyse.comparateur import ENSEIGNES
+from Models.nettoyage.journal import JournalNettoyage
+from Models.nettoyage.nettoyeur import OffreEnseigne
+from Models.rapprochement.catalogue import ProduitReference
 
 
 def formater_fcfa(montant: Optional[float]) -> str:

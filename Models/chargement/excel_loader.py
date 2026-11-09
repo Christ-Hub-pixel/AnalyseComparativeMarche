@@ -5,8 +5,8 @@ from typing import Dict, List, Optional
 import xml.etree.ElementTree as ET
 import zipfile
 
-from src.nettoyage.journal import JournalNettoyage
-from src.nettoyage.nettoyeur import OffreEnseigne, nettoyer_offres_comptoir_ivoire
+from Models.nettoyage.journal import JournalNettoyage
+from Models.nettoyage.nettoyeur import OffreEnseigne, nettoyer_offres_comptoir_ivoire
 
 
 def lire_feuille_xlsx_standard(

@@ -1,6 +1,6 @@
 ================================================================================================
   RAPPORT D'ANALYSE COMPARATIVE DE MARCHÉ — ÉLECTRONIQUE & ÉLECTROMÉNAGER À ABIDJAN
-  DA Python · L2 Computer Science · Séance 3
+ 
 ================================================================================================
 
 1. CHARGEMENT DES TROIS SOURCES DE DONNÉES
@@ -138,12 +138,12 @@
 8. COMPLEXITÉ ALGORITHMIQUE ET MESURES DE TEMPS D'EXÉCUTION
 ------------------------------------------------------------------------------------------------
   • Agrégation de 90 requêtes (enseigne × produit) sur 20 876 lignes :
-    - Approche naïve (boucles imbriquées O(K × N)) : 663.81 ms
-    - Approche indexée (dictionnaire O(N + K))     : 70.65 ms
-    -> Accélération mesurée                        : x9.4 plus rapide
+    - Approche naïve (boucles imbriquées O(K × N)) : 577.00 ms
+    - Approche indexée (dictionnaire O(N + K))     : 49.01 ms
+    -> Accélération mesurée                        : x11.8 plus rapide
   • Recherche unitaire d'un tarif (enseigne, produit, date) :
-    - Parcours linéaire d'une list O(N)            : 15737.85 µs
-    - Accès par clé dans un dict O(1)              : 0.713 µs
-    -> Accélération mesurée                        : x22 088 plus rapide
-  • Temps d'exécution total de la chaîne complète  : 5862.3 ms
+    - Parcours linéaire d'une list O(N)            : 14470.25 µs
+    - Accès par clé dans un dict O(1)              : 0.580 µs
+    -> Accélération mesurée                        : x24 937 plus rapide
+  • Temps d'exécution total de la chaîne complète  : 4833.5 ms
 ================================================================================================

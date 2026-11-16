@@ -41,7 +41,7 @@ def construire_rapport_synthese(
 
     lignes.append("=" * 96)
     lignes.append("  RAPPORT D'ANALYSE COMPARATIVE DE MARCHÉ — ÉLECTRONIQUE & ÉLECTROMÉNAGER À ABIDJAN")
-    lignes.append("  DA Python · L2 Computer Science · Séance 3")
+    lignes.append(" ")
     lignes.append("=" * 96)
 
 
